@@ -64,7 +64,7 @@ public class ManageApplication {
 
 	public static List<Bpapplication> getApplicationList() {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Dcuuser u";
+		String qString = "Select u from Bpapplication u";
 		TypedQuery<Bpapplication> q = em.createQuery(qString, Bpapplication.class);
 		List<Bpapplication> userList = null;
 		try {
