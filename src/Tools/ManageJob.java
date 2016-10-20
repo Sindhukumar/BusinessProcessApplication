@@ -66,15 +66,15 @@ public class ManageJob {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String qString = "Select u from Bpjob u";
 		TypedQuery<Bpjob> q = em.createQuery(qString, Bpjob.class);
-		List<Bpjob> userList = null;
+		List<Bpjob> jobs = null;
 		try {
-			userList = q.getResultList();
+			jobs = q.getResultList();
 		} catch (NoResultException e) {
 			System.out.println(e);
 		} finally {
 			em.close();
 		}
-		return userList;
+		return jobs;
 
 	}
 
