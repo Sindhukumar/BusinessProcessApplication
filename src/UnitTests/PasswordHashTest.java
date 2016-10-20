@@ -2,6 +2,8 @@ package UnitTests;
 
 import static org.junit.Assert.*;
 
+import java.math.BigDecimal;
+
 import org.junit.Test;
 
 import Tools.HashPassword;
@@ -12,7 +14,7 @@ public class PasswordHashTest {
 	public void test_passwordHash() {
 		String hash = HashPassword.Hash("dummy@gmail.com","password");
 		System.out.println(hash);
-		
+		System.out.println("---->>>"+new BigDecimal(4));
 		//assertTrue(hash == "feea72dc67a25559cc6044e845f298f6758b1007c7f28a4827d0efedb2902458") ;
 		
 		String hash2 = HashPassword.Hash("dummy@gmail.com","feea72dc67a25559cc6044e845f298f6758b1007c7f28a4827d0efedb2902458");
