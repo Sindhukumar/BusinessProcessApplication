@@ -11,7 +11,7 @@ import model.Bpstage;
 
 public class ManageStage {
 
-	public static Bpstage getUser(long bpstageid) {
+	public static Bpstage getStage(long bpstageid) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		Bpstage stage = em.find(Bpstage.class, bpstageid);
 		return stage;

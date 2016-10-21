@@ -17,6 +17,7 @@ create table BPApplications(
   JobId number,
   FullName varchar2(100),
   Email varchar2(100),
+  Address varchar2(200),
   Birthday varchar2(100),
   Education varchar2(100),
   JobHistory varchar2(500),
@@ -24,6 +25,7 @@ create table BPApplications(
   druguse varchar2(100),
   veteran varchar2(100),
   citizenship varchar2(100),
+  status varchar2(100),
   foreign key (JobId) references BPJobs(JObId)
 );
 

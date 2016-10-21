@@ -12,7 +12,7 @@ import model.Bpemployer;
 
 public class ManageEmployer {
 
-	public static Bpemployer getUser(long bpemployerid) {
+	public static Bpemployer getEmployer(long bpemployerid) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		Bpemployer employer = em.find(Bpemployer.class, bpemployerid);
 		return employer;
