@@ -45,5 +45,7 @@
 				</tr>
 			</c:forEach>
 	</table>
+	
+	<a href="EmployerActionItems.jsp"> View items needing your action</a>
 </body>
 </html>

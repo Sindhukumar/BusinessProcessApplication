@@ -12,7 +12,7 @@ Bpemployer
 		     
 BpStage
     column: stagename
-    values: nationality , history , degree , drug , veteran , hrinterview , secondinterview , groupinterview , codingtest 
+    values: nationality , history , degree , drugStandard, drugPot, drugAlchol , veteran , hrinterview , secondinterview , groupinterview , codingtest 
     
     column: stageresult
     values: inprogress , failed , passed
