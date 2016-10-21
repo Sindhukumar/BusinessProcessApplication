@@ -35,8 +35,12 @@ public class EmployerLoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String nextURL = "/EmployerHome.jsp";
+		HttpSession session = request.getSession();
+		if("true".equalsIgnoreCase(request.getParameter("logout"))){
+			session.setAttribute("employer", null);
+		}
+		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 
 	/**
@@ -46,8 +50,6 @@ public class EmployerLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// TODO Auto-generated method stub
-		doGet(request, response);
 		String email = request.getParameter("useremail");
 		String password = request.getParameter("userpassword");
 

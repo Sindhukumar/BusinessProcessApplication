@@ -10,7 +10,7 @@
 <title>Employer Home</title>
 </head>
 <body>
-	<table class="table table-bordered table-striped table-hover">
+	<table class="table table-bordered table-striped table-hover" border=2>
 		<thead>
 			<tr>
 				<th>Application ID</th>
