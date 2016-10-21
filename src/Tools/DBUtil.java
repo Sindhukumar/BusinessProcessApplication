@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 
 	@SuppressWarnings("unused")
 	public class DBUtil {
-		private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("DaltonCreditUnion");
+		private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("BusinessProcessApplication");
 		public static EntityManagerFactory getEmFactory(){
 			return emf;
 		}
