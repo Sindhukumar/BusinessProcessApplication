@@ -1,6 +1,10 @@
+Bpjob
+	column: jobtype
+	values: technical , nontechnical
+
 Bpapplication
-     column: Satus
-     values: processing , hired , declined
+    column: Satus
+    values: processing , hired , declined
  
 Bpemployer
 	Column: role

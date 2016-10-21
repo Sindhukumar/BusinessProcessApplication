@@ -78,4 +78,35 @@ public class ManageJob {
 
 	}
 
+	public static List<Bpjob> getTechnicalJobList() {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Bpjob u where lower(jobtype) = 'technical' ";
+		TypedQuery<Bpjob> q = em.createQuery(qString, Bpjob.class);
+		List<Bpjob> jobs = null;
+		try {
+			jobs = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return jobs;
+
+	}
+	
+	public static List<Bpjob> getNonTechnicalJobList() {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Bpjob u where lower(jobtype) != 'technical' ";
+		TypedQuery<Bpjob> q = em.createQuery(qString, Bpjob.class);
+		List<Bpjob> jobs = null;
+		try {
+			jobs = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return jobs;
+
+	}
 }

@@ -11,7 +11,7 @@ import model.Bpapplication;
 
 public class ManageApplication {
 
-	public static Bpapplication getUser(long bpapplicationid) {
+	public static Bpapplication getApplication(long bpapplicationid) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		Bpapplication bpapplication = em.find(Bpapplication.class, bpapplicationid);
 		return bpapplication;
