@@ -1,9 +1,7 @@
 package UnitTests;
 
-import static org.junit.Assert.*;
 import java.math.BigDecimal;
 import org.junit.Test;
-import Tools.HashPassword;
 import Tools.ManageJob;
 import model.Bpjob;
 
