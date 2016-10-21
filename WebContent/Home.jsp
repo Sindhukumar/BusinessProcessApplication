@@ -16,9 +16,12 @@ th, td {
 table {
     border-collapse: collapse;
     width: 100%;
+      border-spacing: 0.5rem
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
 <title>Home</title>
 </head>
 
@@ -78,7 +81,7 @@ table {
 
 					<td>
 
-						<form action="Application.jsp" method="post">
+						<form action="ApplicationServlet" method="get">
 							<input type="hidden" name="jobid" id="jobid"
 								value="${jobList.jobid}" /> <input type="hidden" value="apply"
 								name="action" /> <input type="submit" value="apply" id="apply" />

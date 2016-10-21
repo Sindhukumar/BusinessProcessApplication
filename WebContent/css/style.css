@@ -172,7 +172,7 @@ span.glyphicon.glyphicon-earphone.phone {
 .banner{
 	background:url('../images/banner.jpg') no-repeat 0px 0px;
 	background-size:cover;
-	min-height:600px;
+	min-height:500px;
 	text-align:center;
 }
 .banner h1{
