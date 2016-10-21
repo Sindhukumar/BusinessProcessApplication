@@ -38,7 +38,7 @@ function validateEmail(email) {
 	<font color="red">Email and Password does not match.</font>
 	<%} %>
 	<br>
-		<form name="LoginForm" action="LoginServlet" method="post" onsubmit="return validateForm()">
+		<form name="LoginForm" action="EmployerLoginServlet" method="post" onsubmit="return validateForm()">
 
 			Email:<input type="text" name="useremail" id="useremail"> <br>
 			<br> Password: <input type="password" name="userpassword"

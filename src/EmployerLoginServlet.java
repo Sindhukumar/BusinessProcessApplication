@@ -11,8 +11,10 @@ import javax.servlet.http.HttpSession;
 
 import Tools.ManageApplication;
 import Tools.ManageEmployer;
+import Tools.ManageStage;
 import model.Bpapplication;
 import model.Bpemployer;
+import model.Bpstage;
 
 /**
  * Servlet implementation class LoginServlet
@@ -35,8 +37,12 @@ public class EmployerLoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String nextURL = "/EmployerHome.jsp";
+		HttpSession session = request.getSession();
+		if ("true".equalsIgnoreCase(request.getParameter("logout"))) {
+			session.setAttribute("employer", null);
+		}
+		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 
 	/**
@@ -46,8 +52,6 @@ public class EmployerLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// TODO Auto-generated method stub
-		doGet(request, response);
 		String email = request.getParameter("useremail");
 		String password = request.getParameter("userpassword");
 
@@ -58,7 +62,32 @@ public class EmployerLoginServlet extends HttpServlet {
 		if (employer != null) {
 			session.setAttribute("employer", employer);
 			List<Bpapplication> applications = ManageApplication.getApplicationList();
-			
+			session.setAttribute("applications", applications);
+			List<Bpstage> stages = null;
+			switch (employer.getRole().toLowerCase()) {
+			case "complianceofficer":
+				stages = ManageStage.getStagesByName("nationality");
+				break;
+			case "hrassistant":
+				stages = ManageStage.getStagesByName("history","veteran");
+				break;
+			case "hrspecialist":
+				stages = ManageStage.getStagesByName("degree");
+				break;
+			case "healthcarespecialist":
+				stages = ManageStage.getStagesByName("drugStandard","drugPot","drugAlchol");
+				break;
+			case "hrmanager":
+				stages = ManageStage.getStagesByName("hrinterview");
+				break;
+			case "hiringmanager":
+				stages = ManageStage.getStagesByName("secondinterview,codingtest");
+				break;
+			case "interviewleader":
+				stages = ManageStage.getStagesByName("groupinterview,codingtest");
+				break;
+			}
+			session.setAttribute("stages", stages);
 			nextURL = "/EmployerHome.jsp";
 		}
 

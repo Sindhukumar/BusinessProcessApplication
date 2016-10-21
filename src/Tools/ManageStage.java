@@ -77,5 +77,58 @@ public class ManageStage {
 		return stages;
 
 	}
+	
+	public static List<Bpstage> getStagesByName(String stagename) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Bpstage u where lower(u.stagename) = lower(:stagename)";
+		TypedQuery<Bpstage> q = em.createQuery(qString, Bpstage.class);
+		List<Bpstage> stages = null;
+		q.setParameter("stagename", stagename);
+		try {
+			stages = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return stages;
 
+	}
+	
+	public static List<Bpstage> getStagesByName(String stagename1,String stagename2) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Bpstage u where lower(u.stagename) = lower(:stagename1) or lower(u.stagename) = lower(:stagename2)";
+		TypedQuery<Bpstage> q = em.createQuery(qString, Bpstage.class);
+		List<Bpstage> stages = null;
+		q.setParameter("stagename1", stagename1);
+		q.setParameter("stagename2", stagename2);
+		try {
+			stages = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return stages;
+
+	}
+	
+	public static List<Bpstage> getStagesByName(String stagename1,String stagename2, String stagename3) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Bpstage u where lower(u.stagename) = lower(:stagename1) or lower(u.stagename) = lower(:stagename2) or lower(u.stagename) = lower(:stagename3)";
+		TypedQuery<Bpstage> q = em.createQuery(qString, Bpstage.class);
+		List<Bpstage> stages = null;
+		q.setParameter("stagename1", stagename1);
+		q.setParameter("stagename2", stagename2);
+		q.setParameter("stagename3", stagename3);
+		try {
+			stages = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return stages;
+
+	}
 }
