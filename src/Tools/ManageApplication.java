@@ -77,5 +77,22 @@ public class ManageApplication {
 		return userList;
 
 	}
+	
+	public static List<Bpapplication> getApplicationsatStage(String stagename) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u.bpapplication from Bpstage u where lower(u.stagename) = lower(:stagename)";
+		TypedQuery<Bpapplication> q = em.createQuery(qString, Bpapplication.class);
+		List<Bpapplication> userList = null;
+		q.setParameter("stagename", stagename);
+		try {
+			userList = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return userList;
+
+	}
 
 }
