@@ -58,7 +58,7 @@ public class EmployerLoginServlet extends HttpServlet {
 		if (employer != null) {
 			session.setAttribute("employer", employer);
 			List<Bpapplication> applications = ManageApplication.getApplicationList();
-			
+			session.setAttribute("applications", applications);
 			nextURL = "/EmployerHome.jsp";
 		}
 
