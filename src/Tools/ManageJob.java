@@ -11,7 +11,7 @@ import model.Bpjob;
 
 public class ManageJob {
 
-	public static Bpjob getUser(long jobid) {
+	public static Bpjob getjob(long jobid) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		Bpjob job = em.find(Bpjob.class, jobid);
 		return job;
