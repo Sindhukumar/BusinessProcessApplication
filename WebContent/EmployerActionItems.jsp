@@ -8,6 +8,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Employer Home</title>
+<script src="js/jquery.min.js"> </script>
+<script src="js/bootstrap.js"></script>
+<script>
+	jQuery(document).ready(function($) {
+		$(".clickable-row").click(function() {
+			window.document.location = $(this).data("href");
+		});
+	});
+</script>
 </head>
 <body>
 	<table class="table table-bordered table-striped table-hover" border=2>
@@ -31,7 +40,8 @@
 		</thead>
 		<tr>
 			<c:forEach var="stage" items="${stages}">
-				<tr>
+				<tr class='clickable-row'
+					data-href='UpdateStageServlet?stageid=${stage.bpstageid}'>
 					<td><c:out value="${stage.bpapplication.bpapplicationid}" /></td>
 					<td><c:out value="${stage.bpapplication.bpjob.tittle}" /></td>
 					<td><c:out value="${stage.bpapplication.fullname}" /></td>
@@ -49,6 +59,6 @@
 				</tr>
 			</c:forEach>
 	</table>
-	
+
 </body>
 </html>
