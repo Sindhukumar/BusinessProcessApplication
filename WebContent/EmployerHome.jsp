@@ -30,7 +30,7 @@
 		<tr>
 			<c:forEach var="application" items="${applications}">
 				<tr>
-					<td><c:out value="${application.bpapplicationid}" /></td>
+					<td><a href="ApplicationDetails.jsp"><c:out value="${application.bpapplicationid}" /></a></td>
 					<td><c:out value="${application.bpjob.tittle}" /></td>
 					<td><c:out value="${application.fullname}" /></td>
 					<td><c:out value="${application.email}" /></td>
@@ -42,11 +42,11 @@
 					<td><c:out value="${application.veteran}" /></td>
 					<td><c:out value="${application.druguse}" /></td>
 					<td><c:out value="${application.status}" /></td>
-					 <c:set var="application" value="${application}" scope="session"  />
+					 <c:set var="currentapplication" value="${application}" scope="session"  />
 				</tr>
 			</c:forEach>
 	</table>
 	
-	<a href="EmployerActionItems.jsp"> View items needing your action</a>
+	<a href="EmployerActionServlet"> View items needing your action</a>
 </body>
 </html>
