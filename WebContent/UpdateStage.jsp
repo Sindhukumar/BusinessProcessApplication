@@ -11,6 +11,7 @@
 
 </head>
 <body>
+<jsp:include page="Header.jsp"></jsp:include> 
 	<table class="table table-bordered table-striped table-hover" border=2>
 		<thead>
 			<tr>

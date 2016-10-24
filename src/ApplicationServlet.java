@@ -10,7 +10,9 @@ import javax.servlet.http.HttpSession;
 
 import Tools.ManageApplication;
 import Tools.ManageJob;
+import Tools.ManageStage;
 import model.Bpapplication;
+import model.Bpstage;
 
 /**
  * Servlet implementation class ApplicationServlet
@@ -74,13 +76,19 @@ public class ApplicationServlet extends HttpServlet {
 			application.setDruguse(druguse);
 			application.setVeteran(veteran);
 			application.setCitizenship(citizenship);
-			application.setStatus("Processing");
+			application.setStatus("processing");
 			
-			ManageApplication.add(application);
+			application = ManageApplication.add(application);
 
 			System.out.println("Application added");
 			
 			session.setAttribute("application", application);
+		
+			Bpstage  stage = new Bpstage();
+			stage.setStagename("nationality");
+			stage.setBpapplication(application);
+			stage.setStageresult("inprogress");
+			ManageStage.add(stage);
 			
 			String nextURL="/MailServlet";
 			response.sendRedirect(request.getContextPath() + nextURL);	

@@ -29,7 +29,8 @@ function validateEmail(email) {
 	}
 </script>
 </head>
-<body bgcolor="green">
+<body >
+<jsp:include page="Header.jsp"></jsp:include> 
 
 	<center>
 		<br> <br> <br> <br>

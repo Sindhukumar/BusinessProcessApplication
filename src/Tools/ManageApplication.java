@@ -29,7 +29,7 @@ public class ManageApplication {
 			e.printStackTrace();
 			trans.rollback();
 		} finally {
-			em.flush();
+
 			application = bpapplication;
 			em.close();
 		}
