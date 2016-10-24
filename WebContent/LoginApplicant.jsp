@@ -33,7 +33,8 @@
 						<center>
 						<form action="LoginApplicantServlet" method ="post">
 						<input type="text" value ="" name="applicationid" id="applicationid" placeholder="Enter your application id">
-						<input type="submit" name="" id="submit" name="submit" >
+						<input type="submit" id="submit" name="submit" value="submit" >
+						<br><br><br><br><br><br><br><br>
 					</form>
 					</center>
 					</div>

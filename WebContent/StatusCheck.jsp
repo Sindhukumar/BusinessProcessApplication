@@ -37,7 +37,7 @@ table {
 	<br><br>	
 <br>
 	
-	 <table>
+	 <table  class="table table-bordered table-striped table-hover" border=2>
 <center> 	
    
    <tr>  
@@ -58,8 +58,7 @@ table {
 					<td><c:out value=" ${application.fullname}" /></td>
 					<td><c:out value="${application.status}" /></td>
 
-					<td>
-</td>
+					
 </tr>
 </table>
 	

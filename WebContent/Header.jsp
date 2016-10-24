@@ -38,7 +38,7 @@
 						<div class="phone">
 							<ul>
 								<li><span class="glyphicon glyphicon-earphone phone" aria-hidden="true"></span></li>
-								<li>+8044261150</li>
+								<li>+123456789</li>
 							</ul>
 						</div>
 						<div class="social-icons-top">
