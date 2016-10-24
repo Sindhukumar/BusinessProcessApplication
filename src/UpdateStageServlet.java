@@ -40,7 +40,7 @@ public class UpdateStageServlet extends HttpServlet {
 		session.setAttribute("currenstage", null);
 		if (currenstage != null) {
 			session.setAttribute("currenstage", currenstage);
-			nextURL = "/UpdateStageServlet.jsp";
+			nextURL = "/UpdateStage.jsp";
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}
@@ -113,6 +113,7 @@ public class UpdateStageServlet extends HttpServlet {
 				ManageStage.add(newstage);
 			}
 		}
+		response.sendRedirect(request.getContextPath() + nextURL);
 	}
 
 }

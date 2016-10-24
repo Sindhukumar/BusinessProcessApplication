@@ -48,7 +48,7 @@
 	</table>
 	Current Stage:
 	<br />
-	<form action="UpdateServlet" method="post">
+	<form action="UpdateStageServlet" method="post">
 		<input id="stagename" name="stagename" type="text"
 			value="${currenstage.stagename}" disabled /> <select
 			name="stageresult" id="stageresult">
