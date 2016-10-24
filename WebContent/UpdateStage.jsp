@@ -52,8 +52,7 @@
 		<input id="stagename" name="stagename" type="text"
 			value="${currenstage.stagename}" disabled /> <select
 			name="stageresult" id="stageresult">
-			<option selected="selected">${currenstage.stageresult}</option>
-			<option>failed</option>
+			<option selected="selected">failed</option>
 			<option>passed</option>
 		</select>
 		<textarea name="comment" id="comment" class="form-control" rows="2"

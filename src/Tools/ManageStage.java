@@ -80,7 +80,7 @@ public class ManageStage {
 	
 	public static List<Bpstage> getStagesByName(String stagename) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Bpstage u where lower(u.stagename) = lower(:stagename)";
+		String qString = "Select u from Bpstage u where lower(u.stagename) = lower(:stagename) and u.stageresult='inprogress'";
 		TypedQuery<Bpstage> q = em.createQuery(qString, Bpstage.class);
 		List<Bpstage> stages = null;
 		q.setParameter("stagename", stagename);
