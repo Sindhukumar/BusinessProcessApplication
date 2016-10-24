@@ -17,9 +17,10 @@ public class ManageApplication {
 		return bpapplication;
 	}
 
-	public static void add(Bpapplication bpapplication) {
+	public static Bpapplication add(Bpapplication bpapplication) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
+		Bpapplication application;
 		try {
 			trans.begin();
 			em.persist(bpapplication);
@@ -28,8 +29,11 @@ public class ManageApplication {
 			e.printStackTrace();
 			trans.rollback();
 		} finally {
+			em.flush();
+			application = bpapplication;
 			em.close();
 		}
+		return application;
 	}
 
 	public static void update(Bpapplication bpapplication) {
