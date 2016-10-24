@@ -43,12 +43,12 @@ public class Bpapplication implements Serializable {
 	private String veteran;
 
 	//bi-directional many-to-one association to Bpjob
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="JOBID")
 	private Bpjob bpjob;
 
 	//bi-directional many-to-one association to Bpstage
-	@OneToMany(mappedBy="bpapplication")
+	@OneToMany(mappedBy="bpapplication",fetch=FetchType.EAGER)
 	private List<Bpstage> bpstages;
 
 	public Bpapplication() {

@@ -25,12 +25,12 @@ public class Bpstage implements Serializable {
 	private String stageresult;
 
 	//bi-directional many-to-one association to Bpapplication
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="BPAPPLICATIONID")
 	private Bpapplication bpapplication;
 
 	//bi-directional many-to-one association to Bpemployer
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="BPEMPLOYERID")
 	private Bpemployer bpemployer;
 

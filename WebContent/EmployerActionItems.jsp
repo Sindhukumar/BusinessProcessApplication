@@ -24,6 +24,7 @@
 				<th>References</th>
 				<th>Veteran</th>
 				<th>Drug Use</th>
+				<th>Citizenship</th>
 				<th>Current Stage</th>
 				<th>Stage Result</th>
 			</tr>
@@ -42,6 +43,7 @@
 					<td><c:out value="${stage.bpapplication.references}" /></td>
 					<td><c:out value="${stage.bpapplication.veteran}" /></td>
 					<td><c:out value="${stage.bpapplication.druguse}" /></td>
+					<td><c:out value="${stage.bpapplication.citizenship}" /></td>
 					<td><c:out value="${stage.stagename}" /></td>
 					<td><c:out value="${stage.stageresult}" /></td>
 				</tr>
