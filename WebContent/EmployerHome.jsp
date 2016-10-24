@@ -42,6 +42,7 @@
 					<td><c:out value="${application.veteran}" /></td>
 					<td><c:out value="${application.druguse}" /></td>
 					<td><c:out value="${application.status}" /></td>
+					 <c:set var="application" value="${application}" scope="session"  />
 				</tr>
 			</c:forEach>
 	</table>
