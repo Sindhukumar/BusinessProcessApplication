@@ -15,7 +15,7 @@
 	</div>
 
 	<!-- //Banner -->
-	<br><br>
+	<br><br><br><br><br><br>
 	
 	
 	<div class="modal-content">
@@ -39,6 +39,6 @@
 					</div>
 				</div>
 	
-<br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

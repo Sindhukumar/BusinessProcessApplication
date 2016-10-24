@@ -71,11 +71,10 @@
 					<div id="navbar" class="navbar-collapse navbar-right collapse hover-effect">
 
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#home" class="scroll">HOME</a></li>
-							<li><a href="#about" class="scroll">ABOUT</a></li>
-							<li><a href="#services" class="scroll">SERVICES</a></li>
-							<li><a href="#portfolio" class="scroll">PORTFOLIO</a></li>
-							<li><a href="#team" class="scroll">TEAM</a></li>
+							<li class="active"><a href="Home" class="scroll">HOME</a></li>
+							<li><a href="Home" class="scroll">Jobs</a></li>
+							<li><a href="LoginApplicant.jsp" >Application Status</a></li>
+							<li><a href="EmployerLoginPage.jsp" class="scroll">Employer Login</a></li>
 							<li><a href="#contact" class="scroll">CONTACT</a></li>
 						</ul>
 						

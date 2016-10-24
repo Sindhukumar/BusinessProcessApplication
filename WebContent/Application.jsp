@@ -48,14 +48,15 @@ input[type=text]:focus {
 
 <!-- Banner -->
 		<div class="banner">
-			<h1>Application</h1>
+			<h1>Application for </h1>
 					</div>
 
 		<!-- //Banner -->
 	
 	
 <br><br><br><br>
- <form action ="ApplicationServlet" method ="post">
+<center>
+ <form class="form-horizontal"  action ="ApplicationServlet" method ="post">
  
   <div class="form-group">
     <label for="fullname">Name*:</label>
@@ -122,7 +123,7 @@ input[type=text]:focus {
 
 </form>
           	
-	
+	</center>
 	
 </body>
 </html>

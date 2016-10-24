@@ -30,7 +30,7 @@ table {
 
 	<!-- Banner -->
 		<div class="banner">
-			<h1>IPS </h1>
+			<h1>BPA </h1>
 			<h3>Human Resounce Management System</h3>
 			<h4>Because our People are our Biggest Assests</h4>
 			<a href="#" data-toggle="modal" data-target="#myModal">READ MORE</a>
@@ -51,13 +51,14 @@ table {
 		<!-- //Banner -->
 <div class="modal-content">
 <div class="modal-body">
-<h2>New Opportunities everyday. Apply today!</h2>
+<br><br>
+<h2>New Opportunities everyday</h2>
 					</div>
 </div>
 
 <br><br><br>
 
-    <table>
+    <table class="table table-bordered table-striped table-hover" border=2>
 <center> 	
    
    <tr>  
@@ -66,6 +67,7 @@ table {
    <th>Job Description</th>
     <th>Job Type</th>
     <th>Openings</th>
+     <th>Action</th>
        </h3>
    
    </tr>

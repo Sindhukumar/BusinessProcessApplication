@@ -169,8 +169,14 @@ span.glyphicon.glyphicon-earphone.phone {
 /*-- //Header--*/
 
 /*-- Banner--*/
+.banner1{
+	background:url('../images/big6.jpg') no-repeat 0px 0px;
+	background-size:cover;
+	min-height:500px;
+	text-align:center;
+}
 .banner{
-	background:url('../images/banner.jpg') no-repeat 0px 0px;
+	background:url('../images/testimonialsbg.jpg') no-repeat 0px 0px;
 	background-size:cover;
 	min-height:500px;
 	text-align:center;
