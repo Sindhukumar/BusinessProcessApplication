@@ -82,7 +82,7 @@ public class ApplicationServlet extends HttpServlet {
 			
 			session.setAttribute("application", application);
 			
-			String nextURL="/confirm.jsp";
+			String nextURL="/MailServlet";
 			response.sendRedirect(request.getContextPath() + nextURL);	
 		
 			

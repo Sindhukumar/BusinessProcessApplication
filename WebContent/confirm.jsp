@@ -35,7 +35,7 @@
 						<br>
 						<h4> Should your application match our requirments, an HR officer from our team will get in touch with you </h4>
 						<br>
-						<h4>If you would like to check the status of your application, Please login in <a href ="/checkstatus.jsp">HERE</a> by using your application id and email</h4>
+						<h4>If you would like to check the status of your application, Please login in <a href ="LoginApplicant.jsp">HERE</a> by using your application id and email</h4>
 						<br>
 						<h4> Good Luck!</h4>
 						
