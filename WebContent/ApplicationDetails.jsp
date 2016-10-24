@@ -11,42 +11,48 @@
 </head>
 <body>
 	<table class="table table-bordered table-striped table-hover" border=2>
-		<thead>
-			<tr>
-				<th>Application ID</th>
-				<th>Job Title</th>
-				<th>Name</th>
-				<th>Email</th>
-				<th>Birthday</th>
-				<th>Address</th>
-				<th>Education</th>
-				<th>Job History</th>
-				<th>References</th>
-				<th>Veteran</th>
-				<th>Drug Use</th>
-				<th>Status</th>
-			</tr>
-		</thead>
 		<tr>
 			
 				<tr>
-					<td><c:out value="${currentapplication.bpapplicationid}" /></td>
-					<td><c:out value="${currentapplication.bpjob.tittle}" /></td>
-					<td><c:out value="${currentapplication.fullname}" /></td>
-					<td><c:out value="${currentapplication.email}" /></td>
-					<td><c:out value="${currentapplication.birthday}" /></td>
-					<td><c:out value="${currentapplication.address}" /></td>
-					<td><c:out value="${currentapplication.education}" /></td>
-					<td><c:out value="${currentapplication.jobhistory}" /></td>
-					<td><c:out value="${currentapplication.references}" /></td>
-					<td><c:out value="${currentapplication.veteran}" /></td>
-					<td><c:out value="${currentapplication.druguse}" /></td>
-					<td><c:out value="${currentapplication.status}" /></td>
-					 
+					<td><b>Application ID: </b><c:out value="${currentapplication.bpapplicationid}" /></td>
+					<td><b>Name: </b><c:out value="${currentapplication.fullname}" /></td>
+					<td><b>Birthday: </b><c:out value="${currentapplication.birthday}" /></td>
+					<td><b>Education: </b><c:out value="${currentapplication.education}" /></td>
+					<td><b>References:</b> <c:out value="${currentapplication.references}" /></td>
+					<td><b>Drug Use: </b><c:out value="${currentapplication.druguse}" /></td>
+				</tr>
+				<tr>
+					<td><b>Job Title: </b><c:out value="${currentapplication.bpjob.tittle}" /></td>
+					<td><b>Email: </b><c:out value="${currentapplication.email}" /></td>
+					<td><b>Address: </b><c:out value="${currentapplication.address}" /></td>
+					<td><b>Job History: </b><c:out value="${currentapplication.jobhistory}" /></td>
+					<td><b>Veteran: </b><c:out value="${currentapplication.veteran}" /></td>
+					<td><b>Status: </b><c:out value="${currentapplication.status}" /></td>
+				
 				</tr>
 			
 	</table>
 	
-	<a href="EmployerActionItems.jsp"> View items needing your action</a>
+	<h3>Work Flow</h3>
+	<table class="table table-bordered table-striped table-hover" border=2>
+		<thead>
+			<tr>
+				<th>Stage</th>
+				<th>Result</th>
+				<th>Comment</th>
+				
+			</tr>
+		</thead>
+		<tr>
+			<c:forEach var="stage" items="${currentapplication.bpstages}">
+				<tr>
+					<td><c:out value="${stage.stagename}" /></td>
+					<td><c:out value="${stage.stageresult}" /></td>
+					<td><c:out value="${stage.stagecomment}" /></td>
+				</tr>
+			</c:forEach>
+	</table>
+	
+	<a href="EmployerActionServlet"> View items needing your action</a>
 </body>
 </html>

@@ -8,6 +8,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Employer Home</title>
+<script src="js/jquery.min.js"> </script>
+<script src="js/bootstrap.js"></script>
+<script>
+	jQuery(document).ready(function($) {
+		$(".clickable-row").click(function() {
+			window.document.location = $(this).data("href");
+		});
+	});
+</script>
+
 </head>
 <body>
 	<table class="table table-bordered table-striped table-hover" border=2>
@@ -29,8 +39,9 @@
 		</thead>
 		<tr>
 			<c:forEach var="application" items="${applications}">
-				<tr>
-					<td><a href="ApplicationDetails.jsp"><c:out value="${application.bpapplicationid}" /></a></td>
+				<tr class='clickable-row'
+					data-href='ApplicationDetailServlet?id=${application.bpapplicationid}'>
+					<td><c:out value="${application.bpapplicationid}" /></td>
 					<td><c:out value="${application.bpjob.tittle}" /></td>
 					<td><c:out value="${application.fullname}" /></td>
 					<td><c:out value="${application.email}" /></td>
@@ -42,11 +53,10 @@
 					<td><c:out value="${application.veteran}" /></td>
 					<td><c:out value="${application.druguse}" /></td>
 					<td><c:out value="${application.status}" /></td>
-					 <c:set var="currentapplication" value="${application}" scope="session"  />
 				</tr>
 			</c:forEach>
 	</table>
-	
+
 	<a href="EmployerActionServlet"> View items needing your action</a>
 </body>
 </html>

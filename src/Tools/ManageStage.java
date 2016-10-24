@@ -97,7 +97,7 @@ public class ManageStage {
 	
 	public static List<Bpstage> getStagesByName(String stagename1,String stagename2) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Bpstage u where lower(u.stagename) = lower(:stagename1) or lower(u.stagename) = lower(:stagename2)";
+		String qString = "Select u from Bpstage u where lower(u.stagename) in ( lower(:stagename1) ,  lower(:stagename2) ) and u.stageresult='inprogress'";
 		TypedQuery<Bpstage> q = em.createQuery(qString, Bpstage.class);
 		List<Bpstage> stages = null;
 		q.setParameter("stagename1", stagename1);
@@ -115,7 +115,7 @@ public class ManageStage {
 	
 	public static List<Bpstage> getStagesByName(String stagename1,String stagename2, String stagename3) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Bpstage u where lower(u.stagename) = lower(:stagename1) or lower(u.stagename) = lower(:stagename2) or lower(u.stagename) = lower(:stagename3)";
+		String qString = "Select u from Bpstage u where lower(u.stagename) in (lower(:stagename1) , lower(:stagename2) , lower(:stagename3)) and u.stageresult='inprogress'";
 		TypedQuery<Bpstage> q = em.createQuery(qString, Bpstage.class);
 		List<Bpstage> stages = null;
 		q.setParameter("stagename1", stagename1);
