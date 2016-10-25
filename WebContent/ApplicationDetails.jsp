@@ -18,16 +18,16 @@
 					<td><b>Application ID: </b><c:out value="${currentapplication.bpapplicationid}" /></td>
 					<td><b>Name: </b><c:out value="${currentapplication.fullname}" /></td>
 					<td><b>Birthday: </b><c:out value="${currentapplication.birthday}" /></td>
-					<td><b>Education: </b><c:out value="${currentapplication.education}" /></td>
-					<td><b>References:</b> <c:out value="${currentapplication.references}" /></td>
-					<td><b>Drug Use: </b><c:out value="${currentapplication.druguse}" /></td>
+<%-- 					<td><b>Education: </b><c:out value="${currentapplication.education}" /></td> --%>
+<%-- 					<td><b>References:</b> <c:out value="${currentapplication.references}" /></td> --%>
+<%-- 					<td><b>Drug Use: </b><c:out value="${currentapplication.druguse}" /></td> --%>
 				</tr>
 				<tr>
 					<td><b>Job Title: </b><c:out value="${currentapplication.bpjob.tittle}" /></td>
 					<td><b>Email: </b><c:out value="${currentapplication.email}" /></td>
-					<td><b>Address: </b><c:out value="${currentapplication.address}" /></td>
-					<td><b>Job History: </b><c:out value="${currentapplication.jobhistory}" /></td>
-					<td><b>Veteran: </b><c:out value="${currentapplication.veteran}" /></td>
+<%-- 					<td><b>Address: </b><c:out value="${currentapplication.address}" /></td> --%>
+<%-- 					<td><b>Job History: </b><c:out value="${currentapplication.jobhistory}" /></td> --%>
+<%-- 					<td><b>Veteran: </b><c:out value="${currentapplication.veteran}" /></td> --%>
 					<td><b>Status: </b><c:out value="${currentapplication.status}" /></td>
 				
 				</tr>

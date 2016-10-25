@@ -11,7 +11,7 @@
 
 </head>
 <body>
-<jsp:include page="Header.jsp"></jsp:include> 
+	<jsp:include page="Header.jsp"></jsp:include>
 	<table class="table table-bordered table-striped table-hover" border=2>
 		<thead>
 			<tr>
@@ -43,24 +43,27 @@
 			<td><c:out value="${currenstage.bpapplication.veteran}" /></td>
 			<td><c:out value="${currenstage.bpapplication.druguse}" /></td>
 			<td><c:out value="${currenstage.bpapplication.citizenship}" /></td>
-			<td><c:out value="${currenstage.stagename}" /></td>
-			<td><c:out value="${currenstage.stageresult}" /></td>
 		</tr>
 	</table>
-	Current Stage:
+	Current Stage in progress:
+	<b><c:out value="${currenstage.stagename}" /></b>
+	<br />
 	<br />
 	<form action="UpdateStageServlet" method="post">
-		<input id="stagename" name="stagename" type="text"
-			value="${currenstage.stagename}" disabled /> <select
-			name="stageresult" id="stageresult">
+	<label for="stageresult">Set Result as: </label>
+		<select name="stageresult" id="stageresult">
 			<option selected="selected">failed</option>
 			<option>passed</option>
-		</select>
+		</select><br />
+		<br />
 		<textarea name="comment" id="comment" class="form-control" rows="2"
 			placeholder="Your comments here" maxlength="200"></textarea>
+
+		<br />
+		<br /><center>
 		<button id="submit" type="submit" value="Submit">
 			<font color="blue">Update</font>
-		</button>
+		</button></center>
 	</form>
 
 </body>
