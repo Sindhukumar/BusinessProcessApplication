@@ -48,13 +48,18 @@ public class ApplicationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		
+		String nextURL = null;
 			long jobid = Long.parseLong(session.getAttribute("jobid").toString());
 			System.out.println("the job id in the session is" +jobid);
+			
 			String fullname = request.getParameter("fullname");
 			String email = request.getParameter("email");
 			String address = request.getParameter("address");
 			String birthday = request.getParameter("birthday");
+			String summary = request.getParameter("summary");
+			String objective = request.getParameter("objective");
+			String skill = request.getParameter("skill");
+			
 			String education = request.getParameter("education");
 			String jobhistory = request.getParameter("jobhistory");	
 			String references = request.getParameter("references");
@@ -62,7 +67,7 @@ public class ApplicationServlet extends HttpServlet {
 			String veteran = request.getParameter("veteran");
 			String citizenship = request.getParameter("citizenship");
 			
-			
+		
 			Bpapplication application = new Bpapplication();
 			
 			application.setBpjob(ManageJob.getjob(jobid));
@@ -78,21 +83,30 @@ public class ApplicationServlet extends HttpServlet {
 			application.setCitizenship(citizenship);
 			application.setStatus("processing");
 			
+			session.setAttribute("application", application);
+			
+			
+			if("resume".equalsIgnoreCase(request.getParameter("action"))){
+				nextURL = "/Resume.jsp";
+			}
+			
+
+			if("apply".equalsIgnoreCase(request.getParameter("action")))
+			{
 			application = ManageApplication.add(application);
 
 			System.out.println("Application added");
-			
-			session.setAttribute("application", application);
-		
+				
 			Bpstage  stage = new Bpstage();
 			stage.setStagename("nationality");
 			stage.setBpapplication(application);
 			stage.setStageresult("inprogress");
 			ManageStage.add(stage);
 			
-			String nextURL="/MailServlet";
+			nextURL="/MailServlet";
+			}
 			response.sendRedirect(request.getContextPath() + nextURL);	
-		
+			
 			
 	}
 

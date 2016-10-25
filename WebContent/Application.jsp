@@ -27,7 +27,7 @@
 	     width: 90%;
   border : 5px solid #7bc475;
   padding : 5px;
-  alignment : center
+     margin: 8px 0;
   
 }
 
@@ -46,49 +46,59 @@ input[type=text]:focus {
 <body>
 <jsp:include page="Header.jsp"></jsp:include> 
 
-<!-- Banner -->
-		<div class="banner">
-			<h1>Application</h1>
-					</div>
 
-		<!-- //Banner -->
 	
 	
 <br><br><br><br>
-<center>
+
  <form   action ="ApplicationServlet" method ="post">
  
+ 
   <div class="form-group">
-    <label for="fullname">Name*:</label>
-    <input type="text" class="form-control" id="fullname" name="fullname">
+  Name*: <input type="text" class="form-control" id="fullname" name="fullname">
   </div>
   
    <div class="form-group">
-    <label for="email">Email*:</label>
-    <input type="text" class="form-control" id="email" name="email">
+  Email*: <input type="text" class="form-control" id="email" name="email">
   </div>
   
    <div class="form-group">
-    <label for="birthday">Birthday*:</label>
-    <input type="text" class="form-control" id="birthday" name="birthday">
+   Birthday*:<input type="text" class="form-control" id="birthday" name="birthday">
   </div>
   
-     <div class="form-group">
-    <label for="education">Education*:</label>
-    <input type="text" class="form-control" id="education" name="education">
-  </div>
-  
+
    <div class="form-group">
     <label for="address">Address*:</label>
     <input type="text" class="form-control" id="address" name="address">
   </div>
   
   
+    <div class="form-group">
+  <label for="education">Education*:</label>
+  <input type="text" class="form-control" id="education" name="education">
+  </div>
   
      <div class="form-group">
     <label for="jobhistory">Job history*:</label>
     <input type="text" class="form-control" id="jobhistory" name="jobhistory">
   </div>
+	  
+	   <div class="form-group">
+    <label for="summary">Summary*:</label>
+    <input type="text" class="form-control" id="summary" name="summary">
+  </div>
+	  
+	    <div class="form-group">
+    <label for="objective">Objective*:</label>
+    <input type="text" class="form-control" id="objective" name="objective">
+  </div>
+	   
+	      <div class="form-group">
+    <label for="skill">Skills*:</label>
+    <input type="text" class="form-control" id="skill" name="skill">
+  </div>
+	   
+	   
 	  
      <div class="form-group">
     <label for="references">References*:</label>
@@ -118,12 +128,15 @@ input[type=text]:focus {
 		</div>
 
 <center>
+
+		<input type="hidden" value="Resume"	name="action" />
+		<input type="submit" value="Resume" id="submit" />
+
 		<input type="hidden" value="apply"	name="action" />
-		<input type="submit" value="submit" id="submit" /></center>
+		<input type="submit" value="apply" id="submit" />
+</center>
 
 </form>
-          	
-	</center>
 	
 </body>
 </html>
