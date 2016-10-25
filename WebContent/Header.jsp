@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="model.Bpemployer"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -69,14 +71,21 @@
 					</button>
 
 					<div id="navbar" class="navbar-collapse navbar-right collapse hover-effect">
-
+						<c:if test="${employee==null }">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="Home" class="scroll">HOME</a></li>
+							<li class="active">
 							<li><a href="Home" class="scroll">Jobs</a></li>
 							<li><a href="LoginApplicant.jsp" >Application Status</a></li>
 							<li><a href="EmployerLoginPage.jsp" class="scroll">Employer Login</a></li>
-							<li><a href="#contact" class="scroll">CONTACT</a></li>
+							<li><a href="Contact.jsp" class="scroll">CONTACT</a></li>
 						</ul>
+						</c:if>
+						<c:if test="${employee!=null }">
+						<li><a href="EmployerHomeServlet" class="scroll">Home</a></li>
+							<li><a href="EmployerActionServlet" >My Action Items</a></li>
+							<li><a href="EmployerLoginPage.jsp" class="scroll">Log out</a></li>
+							<li><a href="Contact.jsp" class="scroll">CONTACT</a></li>
+						</c:if>
 						
 					</div>
 						</nav>
