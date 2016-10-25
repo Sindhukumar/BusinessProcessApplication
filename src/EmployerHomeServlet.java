@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Tools.ManageApplication;
+import Tools.ManageQuestions;
 import model.Bpapplication;
 import model.Bpemployer;
+import model.Bpquestion;
 
 /**
  * Servlet implementation class LoginServlet
@@ -39,7 +41,7 @@ public class EmployerHomeServlet extends HttpServlet {
 		if (employer != null) {
 
 			List<Bpapplication> applications = ManageApplication.getApplicationList();
-			session.setAttribute("applications", applications);
+			session.setAttribute("applications", applications);		
 			nextURL = "/EmployerHome.jsp";
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);

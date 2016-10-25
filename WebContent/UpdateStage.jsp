@@ -49,12 +49,31 @@
 	<b><c:out value="${currenstage.stagename}" /></b>
 	<br />
 	<br />
+	
+	<table>
+   	 <thead>
+   	 <td>Questions</td>
+   	 <td>Evaluation</td>
+   	 </thead>
+   	 
+   	 <c:forEach var="questions" items="${questions}">
+   	 <tr>
+	<td><c:out value="${questions.question}" /></td>
+	<td><input type=text value="" id="comments" name="comments"></td>
+	</tr>
+   	 </c:forEach>
+   	 </table>
+	
+	
+	
+	
 	<form action="UpdateStageServlet" method="post">
 	<label for="stageresult">Set Result as: </label>
 		<select name="stageresult" id="stageresult">
 			<option selected="selected">failed</option>
 			<option>passed</option>
 		</select><br />
+		<label for="score">Score: </label><input type=text value="" id="score" name="score" placeholder="Score the candidate from 1(worst) to 10(best)">
 		<br />
 		<textarea name="comment" id="comment" class="form-control" rows="2"
 			placeholder="Your comments here" maxlength="200"></textarea>
