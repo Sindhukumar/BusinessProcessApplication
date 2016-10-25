@@ -31,7 +31,7 @@ table {
 	<!-- Banner -->
 		<div class="banner">
 			<h1>BPA </h1>
-			<h3>Human Resounce Management System</h3>
+			<h3>Human Resource Management System</h3>
 			<h4>Because our People are our Biggest Assests</h4>
 			<a href="#" data-toggle="modal" data-target="#myModal">READ MORE</a>
 		</div>
@@ -43,7 +43,7 @@ table {
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 					<div class="modal-body">
-						<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque semper quam, quis dapibus mi sagittis nec. Donec eget dignissim orci, a scelerisque mauris. Fusce rutrum, enim a elementum condimentum, urna eros rutrum mauris, at ullamcorper odio sapien nec augue.</p>
+						<p>Prof.Dave thought it would be a good idea to make a cocktail of all big projects done so far. So he came up with the idea of HDZ Business Process Application. where HDZ stands for Harrison-Dalton-Zork. This application lets the applicant apply for jobs and view status. while the employer can process the application by logging in.</p>
 					</div>
 				</div>
 			</div>
@@ -63,7 +63,7 @@ table {
    
    <tr>  
    <h3>
-   <th>Job Tittle</th>
+   <th>Job Title</th>
    <th>Job Description</th>
     <th>Job Type</th>
     <th>Openings</th>
