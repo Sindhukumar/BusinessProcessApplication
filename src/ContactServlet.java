@@ -48,7 +48,7 @@ public class ContactServlet extends HttpServlet {
 
 		boolean isBodyHTML = false;
 		System.out.println(isBodyHTML);
-
+		System.out.println(to + from + subject + body);
 		try {
 
 			JavaMail.sendMail(to, from, subject, body, isBodyHTML);
