@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 
 /**
@@ -17,6 +18,8 @@ public class Bpstage implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long bpstageid;
+
+	private BigDecimal score;
 
 	private String stagecomment;
 
@@ -43,6 +46,14 @@ public class Bpstage implements Serializable {
 
 	public void setBpstageid(long bpstageid) {
 		this.bpstageid = bpstageid;
+	}
+
+	public BigDecimal getScore() {
+		return this.score;
+	}
+
+	public void setScore(BigDecimal score) {
+		this.score = score;
 	}
 
 	public String getStagecomment() {

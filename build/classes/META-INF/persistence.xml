@@ -5,6 +5,7 @@
 		<class>model.Bpapplication</class>
 		<class>model.Bpemployer</class>
 		<class>model.Bpjob</class>
+		<class>model.Bpquestion</class>
 		<class>model.Bpstage</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
