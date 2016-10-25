@@ -48,3 +48,12 @@ stageresult varchar2(100),
 FOREIGN key (BPApplicationId) references BPApplications(BPApplicationId),
 FOREIGN key (BPemployerId) references BPEmployers(BPemployerId)
 );
+
+ALTER TABLE Bpapplications
+ADD summary varchar2(200);
+
+ALTER TABLE Bpapplications
+ADD Objective varchar2(200);
+
+ALTER TABLE Bpapplications
+ADD skills varchar2(300);
