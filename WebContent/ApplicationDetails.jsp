@@ -45,7 +45,7 @@
 			</tr>
 		</thead>
 		<tr>
-			<c:forEach var="stage" items="${currentapplication.bpstages}">
+			<c:forEach var="stage" items="${currentapplicationstages}">
 				<tr>
 					<td><c:out value="${stage.stagename}" /></td>
 					<td><c:out value="${stage.stageresult}" /></td>
