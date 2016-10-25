@@ -59,10 +59,10 @@ public class EmployerActionServlet extends HttpServlet {
 				stages = ManageStage.getStagesByName("hrinterview");
 				break;
 			case "hiringmanager":
-				stages = ManageStage.getStagesByName("secondinterview,codingtest");
+				stages = ManageStage.getStagesByName("secondinterview","codingtest");
 				break;
 			case "interviewleader":
-				stages = ManageStage.getStagesByName("groupinterview,codingtest");
+				stages = ManageStage.getStagesByName("groupinterview","codingtest");
 				break;
 			}
 			session.setAttribute("stages", stages);
