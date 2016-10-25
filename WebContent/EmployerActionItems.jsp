@@ -8,7 +8,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Employer Home</title>
-<script src="js/jquery.min.js"> </script>
+<script src="js/jquery.min.js">
+	
+</script>
 <script src="js/bootstrap.js"></script>
 <script>
 	jQuery(document).ready(function($) {
@@ -17,9 +19,16 @@
 		});
 	});
 </script>
+<style>
+td {
+	cursor: pointer;
+	cursor: hand;
+}
+</style>
 </head>
 <body>
-<jsp:include page="Header.jsp"></jsp:include> 
+	<jsp:include page="Header.jsp"></jsp:include>
+	<br/>
 	<table class="table table-bordered table-striped table-hover" border=2>
 		<thead>
 			<tr>
@@ -29,12 +38,20 @@
 				<th>Email</th>
 				<th>Birthday</th>
 				<th>Address</th>
-				<th>Education</th>
-				<th>Job History</th>
-				<th>References</th>
-				<th>Veteran</th>
-				<th>Drug Use</th>
-				<th>Citizenship</th>
+				<c:if test="${employer.role=='hrspecialist'}">
+					<th>Education</th>
+				</c:if>
+				<c:if test="${employer.role=='hrassistant'}">
+					<th>Job History</th>
+					<th>References</th>
+					<th>Veteran</th>
+				</c:if>
+				<c:if test="${employer.role=='healthcarespecialist'}">
+					<th>Drug Use</th>
+				</c:if>
+				<c:if test="${employer.role=='complianceofficer'}">
+					<th>Citizenship</th>
+				</c:if>
 				<th>Current Stage</th>
 				<th>Stage Result</th>
 			</tr>
@@ -49,12 +66,20 @@
 					<td><c:out value="${stage.bpapplication.email}" /></td>
 					<td><c:out value="${stage.bpapplication.birthday}" /></td>
 					<td><c:out value="${stage.bpapplication.address}" /></td>
-					<td><c:out value="${stage.bpapplication.education}" /></td>
-					<td><c:out value="${stage.bpapplication.jobhistory}" /></td>
-					<td><c:out value="${stage.bpapplication.references}" /></td>
-					<td><c:out value="${stage.bpapplication.veteran}" /></td>
-					<td><c:out value="${stage.bpapplication.druguse}" /></td>
-					<td><c:out value="${stage.bpapplication.citizenship}" /></td>
+					<c:if test="${employer.role=='hrspecialist'}">
+						<td><c:out value="${stage.bpapplication.education}" /></td>
+					</c:if>
+					<c:if test="${employer.role=='hrassistant'}">
+						<td><c:out value="${stage.bpapplication.jobhistory}" /></td>
+						<td><c:out value="${stage.bpapplication.references}" /></td>
+						<td><c:out value="${stage.bpapplication.veteran}" /></td>
+					</c:if>
+					<c:if test="${employer.role=='healthcarespecialist'}">
+						<td><c:out value="${stage.bpapplication.druguse}" /></td>
+					</c:if>
+					<c:if test="${employer.role=='complianceofficer'}">
+						<td><c:out value="${stage.bpapplication.citizenship}" /></td>
+					</c:if>
 					<td><c:out value="${stage.stagename}" /></td>
 					<td><c:out value="${stage.stageresult}" /></td>
 				</tr>
