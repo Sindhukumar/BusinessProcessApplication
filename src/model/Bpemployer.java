@@ -29,7 +29,7 @@ public class Bpemployer implements Serializable {
 	private String role;
 
 	//bi-directional many-to-one association to Bpstage
-	@OneToMany(mappedBy="bpemployer",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="bpemployer")
 	private List<Bpstage> bpstages;
 
 	public Bpemployer() {

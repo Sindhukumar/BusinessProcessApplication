@@ -35,20 +35,26 @@ public class Bpapplication implements Serializable {
 
 	private String jobhistory;
 
+	private String objective;
+
 	@Column(name="\"REFERENCES\"")
 	private String references;
 
+	private String skills;
+
 	private String status;
+
+	private String summary;
 
 	private String veteran;
 
 	//bi-directional many-to-one association to Bpjob
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name="JOBID")
 	private Bpjob bpjob;
 
 	//bi-directional many-to-one association to Bpstage
-	@OneToMany(mappedBy="bpapplication",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="bpapplication")
 	private List<Bpstage> bpstages;
 
 	public Bpapplication() {
@@ -126,6 +132,14 @@ public class Bpapplication implements Serializable {
 		this.jobhistory = jobhistory;
 	}
 
+	public String getObjective() {
+		return this.objective;
+	}
+
+	public void setObjective(String objective) {
+		this.objective = objective;
+	}
+
 	public String getReferences() {
 		return this.references;
 	}
@@ -134,12 +148,28 @@ public class Bpapplication implements Serializable {
 		this.references = references;
 	}
 
+	public String getSkills() {
+		return this.skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+
 	public String getStatus() {
 		return this.status;
 	}
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getSummary() {
+		return this.summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
 	public String getVeteran() {

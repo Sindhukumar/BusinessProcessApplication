@@ -29,7 +29,7 @@ public class Bpjob implements Serializable {
 	private String tittle;
 
 	//bi-directional many-to-one association to Bpapplication
-	@OneToMany(mappedBy="bpjob",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="bpjob")
 	private List<Bpapplication> bpapplications;
 
 	public Bpjob() {
