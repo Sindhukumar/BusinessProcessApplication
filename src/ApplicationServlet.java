@@ -58,8 +58,7 @@ public class ApplicationServlet extends HttpServlet {
 			String birthday = request.getParameter("birthday");
 			String summary = request.getParameter("summary");
 			String objective = request.getParameter("objective");
-			String skill = request.getParameter("skill");
-			
+			String skills = request.getParameter("skills");
 			String education = request.getParameter("education");
 			String jobhistory = request.getParameter("jobhistory");	
 			String references = request.getParameter("references");
@@ -76,6 +75,9 @@ public class ApplicationServlet extends HttpServlet {
 			application.setAddress(address);	
 			application.setBirthday(birthday);
 			application.setEducation(education);
+			application.setSummary(summary);
+			application.setObjective(objective);
+			application.setSkills(skills);
 			application.setJobhistory(jobhistory);
 			application.setReferences(references);
 			application.setDruguse(druguse);
@@ -91,12 +93,10 @@ public class ApplicationServlet extends HttpServlet {
 			}
 			
 
-			if("apply".equalsIgnoreCase(request.getParameter("action")))
+			else if("apply".equalsIgnoreCase(request.getParameter("action")))
 			{
 			application = ManageApplication.add(application);
-
 			System.out.println("Application added");
-				
 			Bpstage  stage = new Bpstage();
 			stage.setStagename("nationality");
 			stage.setBpapplication(application);

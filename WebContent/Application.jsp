@@ -6,8 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script>
-  function checkDrug() {
-	    if (document.getElementById('yes').checked) {
+  function checkDrug() 
+  {
+	    if (document.getElementById('yes').checked)
+	    {
 	      	document.getElementById('druguse').value = '';
 	    	document.getElementById('drugusecheck').style.visibility = 'visible';
 	    }
@@ -18,8 +20,17 @@
 	    }
   }
   
-  
-	    </script>
+
+	function checkResume() {
+		alert("Please press ok to view your resume");
+		document.getElementById('action').value = 'resume';
+	}
+	function checkApply() {
+		alert("You will not be able to make changes once you submit");
+		document.getElementById('action').value = 'apply';
+
+	}
+</script>
 	    
 	    <style>
 	    form {
@@ -95,7 +106,7 @@ input[type=text]:focus {
 	   
 	      <div class="form-group">
     <label for="skill">Skills*:</label>
-    <input type="text" class="form-control" id="skill" name="skill">
+    <input type="text" class="form-control" id="skills" name="skills">
   </div>
 	   
 	   
@@ -129,11 +140,11 @@ input[type=text]:focus {
 
 <center>
 
-		<input type="hidden" value="Resume"	name="action" />
-		<input type="submit" value="Resume" id="submit" />
-
-		<input type="hidden" value="apply"	name="action" />
-		<input type="submit" value="apply" id="submit" />
+	 <input type="submit" onclick="javascript:checkResume();"  id="resume" value="Export as Resume"/>
+	 <input type="hidden" name="action" id="action" value="">
+	 
+	 <input type="submit" onclick="javascript:checkApply();"  id="apply" value="Apply to the job"/>
+	 
 </center>
 
 </form>

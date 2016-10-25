@@ -15,17 +15,25 @@
   
 }
 </style>
+<script>
+function goBack() {
+	
+    window.history.go(-1);
+}
+</script>
+
 </head>
 <body>
 <jsp:include page="Header.jsp"></jsp:include>
-<form>
+<form action ="ApplicationServlet" method = "post" >
+<br><br><br>
 <h2>${application.fullname}</h2>
 <br>
-<h4> Contact: ${application.address} | ${application.email} </h4>
+<h5><i> Contact: ${application.address} | ${application.email} </i></h5>
 <br><br> <h4>
-Summary:{application.summary}
+Summary:${application.summary}
 <br><br><br><br>
-Objective : {application.objective}
+Objective : ${application.objective}
 <br><br><br><br>
 
 Education :  ${application.education}
@@ -35,11 +43,12 @@ Skills: ${application.skills}
 Job History: ${application.jobhistory}
 <br><br><br><br>
 References : ${application.references}
+<br><br><br><br>
 
 
 
-
-
+	
+	
 </form>
 </body>
 </html>
