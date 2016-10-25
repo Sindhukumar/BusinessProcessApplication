@@ -111,6 +111,7 @@ public class UpdateStageServlet extends HttpServlet {
 			}
 			if(!"".equalsIgnoreCase(newstage.getStagename())){
 				ManageStage.add(newstage);
+				System.out.println(newstage.getStagename()+ " stage created");
 			}
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);
