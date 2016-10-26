@@ -52,6 +52,25 @@ public class ApplicationServlet extends HttpServlet {
 			long jobid = Long.parseLong(session.getAttribute("jobid").toString());
 			System.out.println("the job id in the session is" +jobid);
 			
+			if("apply2".equalsIgnoreCase(request.getParameter("action")))
+				
+			{
+				System.out.println("Second apply");
+				Bpapplication application = (Bpapplication) session.getAttribute("application");
+				ManageApplication.add(application);
+				System.out.println("Application added");
+				Bpstage  stage = new Bpstage();
+				stage.setStagename("nationality");
+				stage.setBpapplication(application);
+				stage.setStageresult("inprogress");
+				ManageStage.add(stage);
+				
+				nextURL="/MailServlet";
+				
+			}
+			
+			else
+			{
 			String fullname = request.getParameter("fullname");
 			String email = request.getParameter("email");
 			String address = request.getParameter("address");
@@ -104,6 +123,7 @@ public class ApplicationServlet extends HttpServlet {
 			ManageStage.add(stage);
 			
 			nextURL="/MailServlet";
+			}
 			}
 			response.sendRedirect(request.getContextPath() + nextURL);	
 			

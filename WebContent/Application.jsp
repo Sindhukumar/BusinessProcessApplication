@@ -36,7 +36,7 @@
 	    form {
 	    padding: 12px 20px;
 	     width: 90%;
-  border : 5px solid #7bc475;
+
   padding : 5px;
      margin: 8px 0;
   

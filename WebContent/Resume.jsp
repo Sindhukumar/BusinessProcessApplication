@@ -46,7 +46,8 @@ References : ${application.references}
 <br><br><br><br>
 
 
-
+ <input type="submit" name="apply" id="apply" value="apply"/>
+ <input type="hidden" name="action" id="action" value="apply2">
 	
 	
 </form>

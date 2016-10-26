@@ -53,7 +53,7 @@ public class UpdateStageServlet extends HttpServlet {
 		if (currenstage != null) {
 			session.setAttribute("currenstage", currenstage);
 			
-			if(stagequestions.equalsIgnoreCase("hrinterview")||stagequestions.equalsIgnoreCase("secondinterview")||stagequestions.equalsIgnoreCase("groupinterview"))
+			if((tittle.equalsIgnoreCase("Technical")||tittle.equalsIgnoreCase("Management")) && (stagequestions.equalsIgnoreCase("hrinterview")||stagequestions.equalsIgnoreCase("secondinterview")||stagequestions.equalsIgnoreCase("groupinterview")))
 			{
 				List<Bpquestion> questions = ManageQuestions.getStagesByTitle(tittle, stagequestions);
 				session.setAttribute("questions", questions);
