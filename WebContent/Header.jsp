@@ -86,10 +86,11 @@
 								<ul class="nav navbar-nav">
 									<li class="active">
 									<li><a href="Home" class="scroll">Jobs</a></li>
-									<li><a href="LoginApplicant.jsp">Application Status</a></li>
-									<li><a href="EmployerLoginPage.jsp" class="scroll">Employer
-											Login</a></li>
+									<li><a href="LoginApplicant.jsp">Status</a></li>
+									<li><a href="UserLoginPage.jsp" class="scroll">Login</a></li>
+									<li><a href="UserSignUp.jsp" class="scroll">Sign Up</a></li>
 									<li><a href="Contact.jsp" class="scroll">CONTACT</a></li>
+									<li><a href="EmployerLoginPage.jsp" class="scroll">Employer	</a></li>
 								</ul>
 							</c:if>
 						</c:if>
