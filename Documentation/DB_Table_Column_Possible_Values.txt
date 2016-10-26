@@ -16,3 +16,5 @@ BpStage
     
     column: stageresult
     values: inprogress , failed , passed
+    
+     && ( jobtype.equalsIgnoreCase("Technical")||jobtype.equalsIgnoreCase("Management")||jobtype.equalsIgnoreCase("Consulting"))

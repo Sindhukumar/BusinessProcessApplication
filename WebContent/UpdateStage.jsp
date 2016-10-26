@@ -8,7 +8,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Employer Home</title>
+  <script>
+  $( function() {
 
+    $( "#number" )
+      .selectmenu()
+      .selectmenu( "menuWidget" )
+        .addClass( "overflow" );
+    
+    $( "#score" )
+    .selectmenu()
+    .selectmenu( "menuWidget" )
+      .addClass( "overflow" );
+ 
+
+  } );
+  </script>
 </head>
 <body>
 	<jsp:include page="Header.jsp"></jsp:include>
@@ -50,16 +65,33 @@
 	<br />
 	<br />
 	
+	
 	<table>
    	 <thead>
    	 <td>Questions</td>
    	 <td>Evaluation</td>
    	 </thead>
    	 
+   	 <c:if test="${questions!=null }"></c:if>
    	 <c:forEach var="questions" items="${questions}">
    	 <tr>
 	<td><c:out value="${questions.question}" /></td>
-	<td><input type=text value="" id="comments" name="comments"></td>
+	<td><input type=text value="" id="comments" name="comments"  placeholder =""></td>
+	<td>
+	    <select name="number" id="number">
+	   <option selected="selected">Score</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+    </select>
+	</td>
 	</tr>
    	 </c:forEach>
    	 </table>
@@ -70,10 +102,23 @@
 	<form action="UpdateStageServlet" method="post">
 	<label for="stageresult">Set Result as: </label>
 		<select name="stageresult" id="stageresult">
-			<option selected="selected">failed</option>
-			<option>passed</option>
+			<option >failed</option>
+			<option selected="selected">passed</option>
 		</select><br />
-		<label for="score">*Score: </label><input type=text value="" id="score" name="score" placeholder="Score the candidate from 1(worst) to 10(best)">
+		<label for="score">*Score: </label>   <select name="score" id="score">
+	   <option selected="selected">Overall Score</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+    </select>
+		
 		<br />
 		<textarea name="comment" id="comment" class="form-control" rows="2"
 			placeholder="Your comments here" maxlength="200"></textarea>

@@ -40,10 +40,15 @@ public class EmployerLoginServlet extends HttpServlet {
 		String nextURL = "/EmployerLoginPage.jsp";
 		HttpSession session = request.getSession();
 		if ("true".equalsIgnoreCase(request.getParameter("logout"))) {
+			System.out.println("employer is logging out");
 			session.setAttribute("employer", null);
+			
 			session.setAttribute("applications", null);
 			session.setAttribute("currentapplication", null);
 			session.setAttribute("currentapplicationstages", null);
+			System.out.println("questions are being set to null");
+			session.setAttribute("questions", null);
+			System.out.println("questions are set null");
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}

@@ -47,6 +47,7 @@ public class UpdateStageServlet extends HttpServlet {
 		session.setAttribute("currenstage", null);
 		
 		String tittle = currenstage.getBpapplication().getBpjob().getTittle();
+		String jobtype = currenstage.getBpapplication().getBpjob().getJobtype();
 		String stagequestions = currenstage.getStagename();
 		System.out.println("the title is " +tittle);
 		System.out.println("the stage name is " +stagequestions);
@@ -55,7 +56,8 @@ public class UpdateStageServlet extends HttpServlet {
 		if (currenstage != null) {
 			session.setAttribute("currenstage", currenstage);
 			
-			if((tittle.equalsIgnoreCase("Technical")||tittle.equalsIgnoreCase("Management")) && (stagequestions.equalsIgnoreCase("hrinterview")||stagequestions.equalsIgnoreCase("secondinterview")||stagequestions.equalsIgnoreCase("groupinterview")))
+					
+			if(stagequestions.equalsIgnoreCase("hrinterview")||stagequestions.equalsIgnoreCase("secondinterview")||stagequestions.equalsIgnoreCase("groupinterview"))
 			{
 				List<Bpquestion> questions = ManageQuestions.getStagesByTitle(tittle, stagequestions);
 				session.setAttribute("questions", questions);
