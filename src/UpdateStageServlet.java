@@ -89,15 +89,22 @@ public class UpdateStageServlet extends HttpServlet {
 		
 		ManageStage.update(currenstage);
 		Bpapplication application = currenstage.getBpapplication();
+		String body;
 		if ("failed".equalsIgnoreCase(stageresult)) {
 			application.setStatus("declined");
 			ManageApplication.update(application);
+			try {
+				body = "We have decided to move forward with other applicant. We keep your information for futur consideration.";
+				JavaMail.sendMail(application.getEmail(), ManageEmployer.getEmailByRole("hiringmanager"), "Your Application Status", body, false);
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
 		} else {
 			Bpstage newstage = new Bpstage();
 			newstage.setBpapplication(application);
 			newstage.setStageresult("inprogress");
 			String subject ="Action need for Application process";
-			String body = currenstage.getStagename()+" has passed "+" \n Score: "+currenstage.getScore()+" \n Comment: \n "+currenstage.getStagecomment();
+			 body = currenstage.getStagename()+" has passed "+" \n Score: "+currenstage.getScore()+" \n Comment: \n "+currenstage.getStagecomment();
 			boolean isBodyHTML = false;
 			
 			switch (currenstage.getStagename().toLowerCase()) {
@@ -195,7 +202,7 @@ public class UpdateStageServlet extends HttpServlet {
 			}else{
 				ManageApplication.update(application);
 				try {
-					JavaMail.sendMail(application.getEmail(), ManageEmployer.getEmailByRole("hiringmanager"), subject, body, isBodyHTML);
+					JavaMail.sendMail(application.getEmail(), ManageEmployer.getEmailByRole("hiringmanager"), "Your Application Status", body, isBodyHTML);
 				} catch (MessagingException e) {
 					e.printStackTrace();
 				}
