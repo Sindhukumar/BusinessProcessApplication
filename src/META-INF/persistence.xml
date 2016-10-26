@@ -7,6 +7,7 @@
 		<class>model.Bpjob</class>
 		<class>model.Bpquestion</class>
 		<class>model.Bpstage</class>
+		<class>model.Bpuser</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="eclipselink.jdbc.batch-writing" value="Oracle-JDBC"/>

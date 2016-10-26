@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Tools.ManageApplication;
+import Tools.ManageStage;
 import model.Bpapplication;
 import model.Bpemployer;
 import model.Bpstage;
@@ -38,7 +39,7 @@ public class ApplicationDetailServlet extends HttpServlet {
 		long id = Long.parseLong(request.getParameter("id"));
 		Bpapplication currentapplication = ManageApplication.getApplication(id);
 		if (currentapplication != null) {
-			List<Bpstage> currentapplicationstages = currentapplication.getBpstages();
+			List<Bpstage> currentapplicationstages = ManageStage.getStagesByApplication(currentapplication);
 			session.setAttribute("currentapplication", currentapplication);
 			session.setAttribute("currentapplicationstages", currentapplicationstages);
 			nextURL = "/ApplicationDetails.jsp";

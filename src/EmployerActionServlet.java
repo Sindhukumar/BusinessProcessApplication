@@ -39,8 +39,8 @@ public class EmployerActionServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Bpemployer employer = (Bpemployer) session.getAttribute("employer");
 		if (employer != null) {
-			List<Bpapplication> applications = ManageApplication.getApplicationList();
-			session.setAttribute("applications", applications);
+//			List<Bpapplication> applications = ManageApplication.getApplicationList();
+//			session.setAttribute("applications", applications);
 			List<Bpstage> stages = null;
 			switch (employer.getRole().toLowerCase()) {
 			case "complianceofficer":

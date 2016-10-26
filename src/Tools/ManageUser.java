@@ -7,23 +7,23 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
-import model.Bpemployer;
+import model.Bpuser;
 
 
-public class ManageEmployer {
+public class ManageUser {
 
-	public static Bpemployer getEmployer(long bpemployerid) {
+	public static Bpuser getEmployer(long userid) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		Bpemployer employer = em.find(Bpemployer.class, bpemployerid);
-		return employer;
+		Bpuser user = em.find(Bpuser.class, userid);
+		return user;
 	}
 
-	public static void add(Bpemployer employer) {
+	public static void add(Bpuser user) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
 		try {
 			trans.begin();
-			em.persist(employer);
+			em.persist(user);
 			trans.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -33,12 +33,12 @@ public class ManageEmployer {
 		}
 	}
 
-	public static void update(Bpemployer employer) {
+	public static void update(Bpuser user) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
 		try {
 			trans.begin();
-			em.merge(employer);
+			em.merge(user);
 			trans.commit();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -48,12 +48,12 @@ public class ManageEmployer {
 		}
 	}
 
-	public static void delete(Bpemployer employer) {
+	public static void delete(Bpuser user) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
 		try {
 			trans.begin();
-			em.remove(em.merge(employer));
+			em.remove(em.merge(user));
 			trans.commit();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -63,45 +63,45 @@ public class ManageEmployer {
 		}
 	}
 
-	public static Bpemployer getEmployerByEmail(String email) {
+	public static Bpuser getUserByEmail(String email) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Bpemployer u " + "where u.email = :email";
-		TypedQuery<Bpemployer> q = em.createQuery(qString, Bpemployer.class);
+		String qString = "Select u from Bpuser u " + "where u.email = :email";
+		TypedQuery<Bpuser> q = em.createQuery(qString, Bpuser.class);
 		q.setParameter("email", email);
-		Bpemployer employer = null;
+		Bpuser user = null;
 		try {
-			employer = q.getSingleResult();
+			user = q.getSingleResult();
 		} catch (NoResultException e) {
 			System.out.println(e);
 		} finally {
 			em.close();
 		}
-		return employer;
+		return user;
 
 	}
 
-	public static List<Bpemployer> getEmployerList() {
+	public static List<Bpuser> getUserList() {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u from Bpemployer u";
-		TypedQuery<Bpemployer> q = em.createQuery(qString, Bpemployer.class);
-		List<Bpemployer> employers = null;
+		String qString = "Select u from Bpuser u";
+		TypedQuery<Bpuser> q = em.createQuery(qString, Bpuser.class);
+		List<Bpuser> users = null;
 		try {
-			employers = q.getResultList();
+			users = q.getResultList();
 		} catch (NoResultException e) {
 			System.out.println(e);
 		} finally {
 			em.close();
 		}
-		return employers;
+		return users;
 
 	}
 
-	public static Bpemployer isValidEmployer(String email, String password) {
+	public static Bpuser isValidUser(String email, String password) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		password = HashPassword.Hash(email, password);
-		String qString = "Select b from Bpemployer b " + "where b.email = :email and b.hashpassword = :pass";
-		TypedQuery<Bpemployer> q = em.createQuery(qString, Bpemployer.class);
-		Bpemployer user = null;
+		String qString = "Select b from Bpuser b " + "where b.email = :email and b.passwordhash = :pass";
+		TypedQuery<Bpuser> q = em.createQuery(qString, Bpuser.class);
+		Bpuser user = null;
 		q.setParameter("email", email);
 		System.out.println("email" + email);
 		q.setParameter("pass", password);
@@ -118,25 +118,5 @@ public class ManageEmployer {
 
 	}
 	
-	public static String getEmailByRole(String role) {
-		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select b from Bpemployer b " + "where b.role = :role";
-		TypedQuery<Bpemployer> q = em.createQuery(qString, Bpemployer.class);
-		Bpemployer user = null;
-		q.setParameter("role", role);
-		try {
-			q.setFirstResult(0);
-			q.setMaxResults(1);
-			user = q.getSingleResult();
-			System.out.println(user.getEmail());
-		} catch (Exception e) {
-			System.out.println(e);
-		} finally {
-			em.close();
-		}
-		return user.getEmail();
-
-	}
-
 
 }
