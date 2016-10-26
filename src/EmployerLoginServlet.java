@@ -62,7 +62,9 @@ public class EmployerLoginServlet extends HttpServlet {
 		Bpemployer employer = ManageEmployer.isValidEmployer(email, password);
 		HttpSession session = request.getSession();
 		session.setAttribute("employer", employer);
+		
 		if (employer != null) {
+			
 			nextURL = "/EmployerHomeServlet";
 		}
 

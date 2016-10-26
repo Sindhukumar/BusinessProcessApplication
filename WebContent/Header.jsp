@@ -55,9 +55,9 @@
 					<div class="social-icons-top">
 						<ul>
 							<li><a class="linkedin" href="#"></a></li>
-							<li><a class="google" href="#"></a></li>
 							<li><a class="twitter" href="#"></a></li>
 							<li><a class="facebook" href="#"></a></li>
+							
 
 						</ul>
 					</div>
@@ -101,6 +101,7 @@
 								<li><a href="EmployerLoginServlet?logout=true"
 									class="scroll">Log out</a></li>
 								<li><a href="Contact.jsp" class="scroll">CONTACT</a></li>
+								<li><a href =""> User: ${employer.name } - ${employer.role }  </a></li>
 							</ul>
 						</c:if>
 						<c:if test="${user!=null }">

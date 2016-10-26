@@ -72,7 +72,7 @@
    	 <td>Evaluation</td>
    	 </thead>
    	 
-   	 <c:if test="${questions!=null }"></c:if>
+   	 <c:if test="${questions!=null }">
    	 <c:forEach var="questions" items="${questions}">
    	 <tr>
 	<td><c:out value="${questions.question}" /></td>
@@ -93,10 +93,10 @@
     </select>
 	</td>
 	</tr>
-   	 </c:forEach>
+   	 </c:forEach></c:if>
    	 </table>
 	
-	
+
 	
 	
 	<form action="UpdateStageServlet" method="post">
