@@ -73,7 +73,7 @@
 			<option selected="selected">failed</option>
 			<option>passed</option>
 		</select><br />
-		<label for="score">Score: </label><input type=text value="" id="score" name="score" placeholder="Score the candidate from 1(worst) to 10(best)">
+		<label for="score">*Score: </label><input type=text value="" id="score" name="score" placeholder="Score the candidate from 1(worst) to 10(best)">
 		<br />
 		<textarea name="comment" id="comment" class="form-control" rows="2"
 			placeholder="Your comments here" maxlength="200"></textarea>

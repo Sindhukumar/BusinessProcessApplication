@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
+import model.Bpapplication;
 import model.Bpstage;
 
 public class ManageStage {
@@ -121,6 +122,23 @@ public class ManageStage {
 		q.setParameter("stagename1", stagename1);
 		q.setParameter("stagename2", stagename2);
 		q.setParameter("stagename3", stagename3);
+		try {
+			stages = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return stages;
+
+	}
+	
+	public static List<Bpstage> getStagesByApplication(Bpapplication application) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u from Bpstage u where u.bpapplication = :application";
+		TypedQuery<Bpstage> q = em.createQuery(qString, Bpstage.class);
+		List<Bpstage> stages = null;
+		q.setParameter("application", application);
 		try {
 			stages = q.getResultList();
 		} catch (NoResultException e) {

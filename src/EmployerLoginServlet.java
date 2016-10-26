@@ -41,6 +41,9 @@ public class EmployerLoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		if ("true".equalsIgnoreCase(request.getParameter("logout"))) {
 			session.setAttribute("employer", null);
+			session.setAttribute("applications", null);
+			session.setAttribute("currentapplication", null);
+			session.setAttribute("currentapplicationstages", null);
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);
 	}
