@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Employer Home</title>
+<title>User Home</title>
 <script src="js/jquery.min.js">
 	
 </script>
@@ -17,6 +17,9 @@
 <body>
 	<jsp:include page="Header.jsp"></jsp:include>
 	<br>
+	<c:if test="${usergravatar!=null}">
+	<img src="${usergravatar}" height="22" width="2">
+	</c:if>
 	<table class="table table-bordered table-striped table-hover">
 		<tr>
 			<td>Email: <c:out value="${user.email}" /></td>
