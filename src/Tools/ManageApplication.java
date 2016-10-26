@@ -86,17 +86,33 @@ public class ManageApplication {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String qString = "Select u.bpapplication from Bpstage u where lower(u.stagename) = lower(:stagename)";
 		TypedQuery<Bpapplication> q = em.createQuery(qString, Bpapplication.class);
-		List<Bpapplication> userList = null;
+		List<Bpapplication> applications = null;
 		q.setParameter("stagename", stagename);
 		try {
-			userList = q.getResultList();
+			applications = q.getResultList();
 		} catch (NoResultException e) {
 			System.out.println(e);
 		} finally {
 			em.close();
 		}
-		return userList;
+		return applications;
 
 	}
 
+	public static List<Bpapplication> getApplicationsByEmail(String email) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select u.bpapplication from Bpstage u where lower(u.email) = lower(:email)";
+		TypedQuery<Bpapplication> q = em.createQuery(qString, Bpapplication.class);
+		List<Bpapplication> applications = null;
+		q.setParameter("email", email);
+		try {
+			applications = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return applications;
+
+	}
 }
