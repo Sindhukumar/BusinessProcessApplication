@@ -42,7 +42,7 @@
 		<div class="top-bar">
 			<div class="container">
 				<div class="logo">
-					<a href="#"><h2>BUSINESS PARK</h2></a>
+					<h2><a href="#">BUSINESS PARK</a></h2>
 				</div>
 				<div class="header-right">
 					<div class="phone">
