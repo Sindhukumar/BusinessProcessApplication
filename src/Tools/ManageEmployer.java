@@ -117,7 +117,26 @@ public class ManageEmployer {
 		return user;
 
 	}
+	
+	public static String getEmailByRole(String role) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "Select b from Bpemployer b " + "where b.role = :role";
+		TypedQuery<Bpemployer> q = em.createQuery(qString, Bpemployer.class);
+		Bpemployer user = null;
+		q.setParameter("role", role);
+		try {
+			q.setFirstResult(0);
+			q.setMaxResults(1);
+			user = q.getSingleResult();
+			System.out.println(user.getEmail());
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return user.getEmail();
 
+	}
 
 
 }

@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Tools.ManageApplication;
+import Tools.ManageEmployer;
 import Tools.ManageQuestions;
 import Tools.ManageStage;
 import model.Bpapplication;
@@ -92,37 +94,91 @@ public class UpdateStageServlet extends HttpServlet {
 			Bpstage newstage = new Bpstage();
 			newstage.setBpapplication(application);
 			newstage.setStageresult("inprogress");
+			String subject ="Action need for Application process";
+			String body = currenstage.getStagename()+" has passed "+" \n Score: "+currenstage.getScore()+" \n Comment: \n "+currenstage.getStagecomment();
+			boolean isBodyHTML = false;
+			
 			switch (currenstage.getStagename().toLowerCase()) {
 			case "nationality":
 				newstage.setStagename("history");
+				try {
+					JavaMail.sendMail(ManageEmployer.getEmailByRole("hrassistant"), ManageEmployer.getEmailByRole("complianceofficer"), subject, body, isBodyHTML);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
 				break;
 			case "history":
 				newstage.setStagename("degree");
+				try {
+					JavaMail.sendMail(ManageEmployer.getEmailByRole("hrspecialist"), ManageEmployer.getEmailByRole("hrassistant"), subject, body, isBodyHTML);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
 				break;
 			case "degree":
 				newstage.setStagename("drugstandard");
+				try {
+					JavaMail.sendMail(ManageEmployer.getEmailByRole("healthcarespecialist"), ManageEmployer.getEmailByRole("hrspecialist"), subject, body, isBodyHTML);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
 				break;
 			case "drugstandard":
 				newstage.setStagename("drugpot");
+				try {
+					JavaMail.sendMail(ManageEmployer.getEmailByRole("healthcarespecialist"), ManageEmployer.getEmailByRole("healthcarespecialist"), subject, body, isBodyHTML);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
 				break;
 			case "drugpot":
 				newstage.setStagename("drugalchol");
+				try {
+					JavaMail.sendMail(ManageEmployer.getEmailByRole("healthcarespecialist"), ManageEmployer.getEmailByRole("healthcarespecialist"), subject, body, isBodyHTML);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
 				break;
 			case "drugalchol":
 				newstage.setStagename("veteran");
+				try {
+					JavaMail.sendMail(ManageEmployer.getEmailByRole("hrassistant"), ManageEmployer.getEmailByRole("healthcarespecialist"), subject, body, isBodyHTML);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
 				break;
 			case "veteran":
 				newstage.setStagename("hrinterview");
+				try {
+					JavaMail.sendMail(ManageEmployer.getEmailByRole("hrmanager"), ManageEmployer.getEmailByRole("hrassistant"), subject, body, isBodyHTML);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
 				break;
 			case "hrinterview":
 				newstage.setStagename("secondinterview");
+				try {
+					JavaMail.sendMail(ManageEmployer.getEmailByRole("hiringmanager"), ManageEmployer.getEmailByRole("hrmanager"), subject, body, isBodyHTML);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
 				break;
 			case "secondinterview":
 				newstage.setStagename("groupinterview");
+				try {
+					JavaMail.sendMail(ManageEmployer.getEmailByRole("interviewleader"), ManageEmployer.getEmailByRole("hiringmanager"), subject, body, isBodyHTML);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
 				break;
 			case "groupinterview":
 				if ("technical".equalsIgnoreCase(application.getBpjob().getJobtype())) {
 					newstage.setStagename("codingtest");
+					try {
+						JavaMail.sendMail(ManageEmployer.getEmailByRole("hiringmanager"), ManageEmployer.getEmailByRole("interviewleader"), subject, body, isBodyHTML);
+					} catch (MessagingException e) {
+						e.printStackTrace();
+					}
 				}else{
 					application.setStatus("hired");
 				}
@@ -136,6 +192,11 @@ public class UpdateStageServlet extends HttpServlet {
 				ManageStage.add(newstage);
 			}else{
 				ManageApplication.update(application);
+				try {
+					JavaMail.sendMail(application.getEmail(), ManageEmployer.getEmailByRole("hiringmanager"), subject, body, isBodyHTML);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);
