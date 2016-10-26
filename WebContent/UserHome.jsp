@@ -12,13 +12,17 @@
 	
 </script>
 <script src="js/bootstrap.js"></script>
-
+<style>
+img {
+	width: 2%;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="Header.jsp"></jsp:include>
 	<br>
 	<c:if test="${usergravatar!=null}">
-	<img src="${usergravatar}" height="22" width="2">
+	<img src="${usergravatar}" height="22" width="22" style="width:2%; height:2%">
 	</c:if>
 	<table class="table table-bordered table-striped table-hover">
 		<tr>
