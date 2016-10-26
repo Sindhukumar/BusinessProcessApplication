@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ContactServlet
@@ -20,14 +19,12 @@ public class ContactServlet extends HttpServlet {
      */
     public ContactServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -35,9 +32,7 @@ public class ContactServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
-		HttpSession session = request.getSession();
 
 		String to = request.getParameter("to");
 		String from = request.getParameter("from");
@@ -54,8 +49,7 @@ public class ContactServlet extends HttpServlet {
 			JavaMail.sendMail(to, from, subject, body, isBodyHTML);
 			System.out.println(body);
 		} catch (javax.mail.MessagingException e) {
-			// TODO Auto-generated catch block
-			String errorMessage = "Error: Unable to send message";
+			e.printStackTrace();
 		}
 
 		String nextURL = "/Success.jsp";

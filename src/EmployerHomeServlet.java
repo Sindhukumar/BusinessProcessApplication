@@ -10,10 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Tools.ManageApplication;
-import Tools.ManageQuestions;
 import model.Bpapplication;
 import model.Bpemployer;
-import model.Bpquestion;
 
 /**
  * Servlet implementation class LoginServlet
