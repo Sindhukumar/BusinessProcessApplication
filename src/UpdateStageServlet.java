@@ -132,8 +132,10 @@ public class UpdateStageServlet extends HttpServlet {
 				application.setStatus("hired");
 				break;
 			}
-			if(!"".equalsIgnoreCase(newstage.getStagename())){
+			if(!"hired".equalsIgnoreCase(application.getStatus())){
 				ManageStage.add(newstage);
+			}else{
+				ManageApplication.update(application);
 			}
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);

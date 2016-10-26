@@ -10,30 +10,35 @@
 <title>Application Detail</title>
 </head>
 <body>
-<jsp:include page="Header.jsp"></jsp:include> 
+	<jsp:include page="Header.jsp"></jsp:include>
 	<table class="table table-bordered table-striped table-hover" border=2>
 		<tr>
-			
-				<tr>
-					<td><b>Application ID: </b><c:out value="${currentapplication.bpapplicationid}" /></td>
-					<td><b>Name: </b><c:out value="${currentapplication.fullname}" /></td>
-					<td><b>Birthday: </b><c:out value="${currentapplication.birthday}" /></td>
-<%-- 					<td><b>Education: </b><c:out value="${currentapplication.education}" /></td> --%>
-<%-- 					<td><b>References:</b> <c:out value="${currentapplication.references}" /></td> --%>
-<%-- 					<td><b>Drug Use: </b><c:out value="${currentapplication.druguse}" /></td> --%>
-				</tr>
-				<tr>
-					<td><b>Job Title: </b><c:out value="${currentapplication.bpjob.tittle}" /></td>
-					<td><b>Email: </b><c:out value="${currentapplication.email}" /></td>
-<%-- 					<td><b>Address: </b><c:out value="${currentapplication.address}" /></td> --%>
-<%-- 					<td><b>Job History: </b><c:out value="${currentapplication.jobhistory}" /></td> --%>
-<%-- 					<td><b>Veteran: </b><c:out value="${currentapplication.veteran}" /></td> --%>
-					<td><b>Status: </b><c:out value="${currentapplication.status}" /></td>
-				
-				</tr>
-			
+		<tr>
+			<td><b>Application ID: </b>
+			<c:out value="${currentapplication.bpapplicationid}" /></td>
+			<td><b>Name: </b>
+			<c:out value="${currentapplication.fullname}" /></td>
+			<td><b>Birthday: </b>
+			<c:out value="${currentapplication.birthday}" /></td>
+			<%-- 					<td><b>Education: </b><c:out value="${currentapplication.education}" /></td> --%>
+			<%-- 					<td><b>References:</b> <c:out value="${currentapplication.references}" /></td> --%>
+			<%-- 					<td><b>Drug Use: </b><c:out value="${currentapplication.druguse}" /></td> --%>
+		</tr>
+		<tr>
+			<td><b>Job Title: </b>
+			<c:out value="${currentapplication.bpjob.tittle}" /></td>
+			<td><b>Email: </b>
+			<c:out value="${currentapplication.email}" /></td>
+			<%-- 					<td><b>Address: </b><c:out value="${currentapplication.address}" /></td> --%>
+			<%-- 					<td><b>Job History: </b><c:out value="${currentapplication.jobhistory}" /></td> --%>
+			<%-- 					<td><b>Veteran: </b><c:out value="${currentapplication.veteran}" /></td> --%>
+			<td><b>Status: </b>
+			<c:out value="${currentapplication.status}" /></td>
+
+		</tr>
+
 	</table>
-	
+
 	<h3>Work Flow</h3>
 	<table class="table table-bordered table-striped table-hover" border=2>
 		<thead>
@@ -41,7 +46,7 @@
 				<th>Stage</th>
 				<th>Result</th>
 				<th>Comment</th>
-				
+
 			</tr>
 		</thead>
 		<tr>
@@ -53,7 +58,12 @@
 				</tr>
 			</c:forEach>
 	</table>
-	
-	<a href="EmployerActionServlet"> View items needing your action</a>
+
+	<!-- 	<a href="EmployerActionServlet"> View items needing your action</a> -->
+	<center>
+		<form method="get" action="EmployerActionServlet">
+			<button type="submit">Your Action Items</button>
+		</form>
+	</center>
 </body>
 </html>
