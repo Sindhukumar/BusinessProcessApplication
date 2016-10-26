@@ -11,19 +11,19 @@ import javax.servlet.http.HttpSession;
 
 import Tools.ManageApplication;
 import model.Bpapplication;
-import model.Bpemployer;
+import model.Bpuser;
 
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/EmployerHomeServlet")
-public class EmployerHomeServlet extends HttpServlet {
+@WebServlet("/UserHomeServlet")
+public class UserHomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EmployerHomeServlet() {
+	public UserHomeServlet() {
 		super();
 	}
 
@@ -33,14 +33,14 @@ public class EmployerHomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String nextURL = "/EmployerLoginPage.jsp";
+		String nextURL = "/UserLoginPage.jsp";
 		HttpSession session = request.getSession();
-		Bpemployer employer = (Bpemployer) session.getAttribute("employer");
-		if (employer != null) {
+		Bpuser user = (Bpuser) session.getAttribute("user");
+		if (user != null) {
 
-			List<Bpapplication> applications = ManageApplication.getApplicationList();
-			session.setAttribute("applications", applications);		
-			nextURL = "/EmployerHome.jsp";
+			List<Bpapplication> appliedapplications = ManageApplication.getApplicationsByEmail(user.getEmail());
+			session.setAttribute("appliedapplications", appliedapplications);		
+			nextURL = "/UserHome.jsp";
 		}
 		response.sendRedirect(request.getContextPath() + nextURL);
 

@@ -101,7 +101,7 @@ public class ManageApplication {
 
 	public static List<Bpapplication> getApplicationsByEmail(String email) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "Select u.bpapplication from Bpstage u where lower(u.email) = lower(:email)";
+		String qString = "Select u from Bpapplication u where lower(u.email) = lower(:email)";
 		TypedQuery<Bpapplication> q = em.createQuery(qString, Bpapplication.class);
 		List<Bpapplication> applications = null;
 		q.setParameter("email", email);

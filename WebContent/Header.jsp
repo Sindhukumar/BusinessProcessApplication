@@ -82,20 +82,32 @@
 					<div id="navbar"
 						class="navbar-collapse navbar-right collapse hover-effect">
 						<c:if test="${employer==null }">
-							<ul class="nav navbar-nav">
-								<li class="active">
-								<li><a href="Home" class="scroll">Jobs</a></li>
-								<li><a href="LoginApplicant.jsp">Application Status</a></li>
-								<li><a href="EmployerLoginPage.jsp" class="scroll">Employer
-										Login</a></li>
-								<li><a href="Contact.jsp" class="scroll">CONTACT</a></li>
-							</ul>
+							<c:if test="${user==null }">
+								<ul class="nav navbar-nav">
+									<li class="active">
+									<li><a href="Home" class="scroll">Jobs</a></li>
+									<li><a href="LoginApplicant.jsp">Application Status</a></li>
+									<li><a href="EmployerLoginPage.jsp" class="scroll">Employer
+											Login</a></li>
+									<li><a href="Contact.jsp" class="scroll">CONTACT</a></li>
+								</ul>
+							</c:if>
 						</c:if>
 						<c:if test="${employer!=null }">
 							<ul class="nav navbar-nav">
 								<li><a href="EmployerHomeServlet" class="scroll">Home</a></li>
 								<li><a href="EmployerActionServlet">My Action Items</a></li>
-								<li><a href="EmployerLoginServlet?logout=true" class="scroll">Log
+								<li><a href="EmployerLoginServlet?logout=true"
+									class="scroll">Log out</a></li>
+								<li><a href="Contact.jsp" class="scroll">CONTACT</a></li>
+							</ul>
+						</c:if>
+						<c:if test="${user!=null }">
+							<ul class="nav navbar-nav">
+								<li><a href="UserHomeServlet" class="scroll">Home</a></li>
+								<li><a href="Home" class="scroll">Jobs</a></li>
+								<!-- <li><a href="UserUpdate.jsp">Edit Profile</a></li> -->
+								<li><a href="UserLoginServlet?logout=true" class="scroll">Log
 										out</a></li>
 								<li><a href="Contact.jsp" class="scroll">CONTACT</a></li>
 							</ul>

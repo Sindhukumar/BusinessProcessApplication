@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import model.Bpapplication;
@@ -40,13 +39,11 @@ public class MailServlet extends HttpServlet {
 		
 		
 		HttpSession session = request.getSession();
-		String action =request.getParameter("action");
 		//System.out.println(action);
 		Bpapplication application= (Bpapplication) session.getAttribute("application");
 		
 		
 
-			String firstname=application.getFullname();
 			String email= application.getEmail();
 
 			session.setAttribute("email", email);
@@ -67,8 +64,7 @@ public class MailServlet extends HttpServlet {
 					JavaMail.sendMail(to, from, subject, body, isBodyHTML);	
 					System.out.println(body);
 				} catch (javax.mail.MessagingException e) {
-					// TODO Auto-generated catch block
-					String errorMessage="Error: Unable to send message";
+					e.printStackTrace();
 				}
 				
 				String nextURL="/confirm.jsp";
